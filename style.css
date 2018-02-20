@@ -1,0 +1,174 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/*zacina sekce pro menu*/
+#navbar {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: absolute;
+  width: 100%;
+  z-index: 1; /*pozice zobrazeni*/
+  display: none; /*zmeni se na block v js*/
+}
+
+/* input je checkbox, ktery ma pozici 2 a opacity 0
+takze je zobrazen v popredi a ridi interakci
+pseudoselekci :checked */
+#navbar input {
+  display: block;
+  width: 50px;
+  height: 35px;
+  position: relative;
+  float: right;
+  clear: right;
+  top: 60px;
+  right: 40px;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* vykresleni hamburger menu a jeho animace */
+#navbar span {
+  display: block;
+  width: 33px;
+  height: 4.5px;
+  margin-bottom: 5px;
+  position: relative;
+  float: right;
+  clear: right;
+  top: 30px;
+  right: 50px;
+  background: #e2616e;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px; /*kde zacne animace = 4px po ose X*/
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#navbar span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#navbar span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+#navbar input:checked~span {
+  opacity: 1;
+  transform: rotate(45deg); /*rotace o 45 stupnu po smeru*/
+  background: #232323;
+}
+
+#navbar input:checked~span:nth-last-child(3) {
+  opacity: 0;
+  transform: scale(0.2, 0.2); /*prostredni span se zmensi na 0.2 a zmizi*/
+}
+
+#navbar input:checked~span:nth-last-child(2) {
+  transform: rotate(-45deg); /*rotace o 45 stupnu proti smeru*/
+}
+
+.menu {
+  position: relative;
+  width: 100%;
+  margin-top: -100px;
+  padding: 170px 0 50px 0;
+  background: rgba(255,255,255,0.7);
+  list-style-type: none;
+  transform-origin: 0% 0%;
+  transform: translate( -0%, -100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  text-align: center;
+}
+
+/*pozice itemu vuci hamburgeru je nyni presne dana
+pokud se zvetsi napr. font musi se pozicovani predelat*/
+.menu li {
+  font-size: 22px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #232323;
+  padding: 10px;
+  font-weight: bold;
+}
+
+a:hover {
+  color:#e2616e;
+  border: 2px solid black;
+  border-radius: 8%;
+}
+
+#navbar input:checked~ul {
+  transform: none; /*cely menu je posunuto transformaci -100%,
+  checknuti checkboxu transformaci zrusi a menu sjede*/
+}
+
+/*konci sekce pro menu*/
+
+.main {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+#logo {
+  position: relative;
+  top: 5%;
+  display:block;
+  max-width: 669px;
+  max-height: 582px;
+  margin: 0 auto;
+}
+
+
+#btnOmne {
+  position: relative;
+  width: 140px;
+  top: 5%;
+  margin: 0 auto;
+  background-color: transparent;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+  color: #ebd7bb;
+  text-align: center;
+  border-radius: 20px;
+  border: 5px solid #ebd7bb;
+  text-transform: uppercase;
+  font-size: 20px;
+  display: block;
+  box-shadow: inset 0 0 25px #ebd7bb, 0 0 25px #edebe8;
+}
+
+#btnOmne:hover {
+  box-shadow: inset 0 0 25px #ebd7bb, 0 0 45px #edebe8;
+  /*hover efekt prida vic pixelu do outter glow*/
+}
+
+#btnOmne:active {
+  top: calc(5% + 5px); /*button po kliknuti klesne o 5px*/
+}
+
+
+/* responsive design, mensi sirka nez 930 bude mit menu vertikalne */
+@media only screen and (max-width: 930px)  {
+  .menu li {
+    display: block;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+}
