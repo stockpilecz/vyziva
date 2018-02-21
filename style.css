@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 body, html {
-  height: 100%;
   margin: 0;
   padding: 0;
+  font-family: "Montserrat", serif;
+  height: 100%;
+}
+
+html{
+  background-image: url("Hory_Modry.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed; /* parralax efekt*/
 }
 
 /*zacina sekce pro menu*/
@@ -12,7 +23,8 @@ body, html {
   position: absolute;
   width: 100%;
   z-index: 1; /*pozice zobrazeni*/
-  display: none; /*zmeni se na block v js*/
+  display: none;
+  /*zmeni se na block v js*/
 }
 
 /* input je checkbox, ktery ma pozici 2 a opacity 0
@@ -22,7 +34,7 @@ pseudoselekci :checked */
   display: block;
   width: 50px;
   height: 35px;
-  position: relative;
+  position: fixed;
   float: right;
   clear: right;
   top: 60px;
@@ -33,21 +45,30 @@ pseudoselekci :checked */
 }
 
 /* vykresleni hamburger menu a jeho animace */
-#navbar span {
+#navbar #span1, #span2, #span3 {
   display: block;
   width: 33px;
   height: 4.5px;
-  margin-bottom: 5px;
-  position: relative;
+  position: fixed;
   float: right;
   clear: right;
-  top: 30px;
+  top: 70px;
   right: 50px;
   background: #e2616e;
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px; /*kde zacne animace = 4px po ose X*/
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+/*pozice fixed to dala na jedno misto, tak jsem je musel jednotlive posunout*/
+#span2 {
+top: 79px;
+
+}
+#span3 {
+top: 89px;
+
 }
 
 #navbar span:first-child {
@@ -58,7 +79,8 @@ pseudoselekci :checked */
   transform-origin: 0% 100%;
 }
 
-#navbar input:checked~span {
+
+#navbar input:checked~#span1 {
   opacity: 1;
   transform: rotate(45deg); /*rotace o 45 stupnu po smeru*/
   background: #232323;
@@ -66,15 +88,19 @@ pseudoselekci :checked */
 
 #navbar input:checked~span:nth-last-child(3) {
   opacity: 0;
-  transform: scale(0.2, 0.2); /*prostredni span se zmensi na 0.2 a zmizi*/
+  transform: scale(0.1, 0.1);
+  transform-origin: 10px 0px;
+  background: #232323;
+   /*prostredni span se zmensi na 0.2 a zmizi*/
 }
 
 #navbar input:checked~span:nth-last-child(2) {
   transform: rotate(-45deg); /*rotace o 45 stupnu proti smeru*/
+  background: #232323;
 }
 
 .menu {
-  position: relative;
+  position: fixed;
   width: 100%;
   margin-top: -100px;
   padding: 170px 0 50px 0;
@@ -94,7 +120,7 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
   display: inline-block;
 }
 
-a {
+.menu a {
   text-decoration: none;
   text-transform: uppercase;
   color: #232323;
@@ -102,11 +128,11 @@ a {
   font-weight: bold;
 }
 
-a:hover {
+.menu a:hover {
   color:#e2616e;
-  border: 2px solid black;
-  border-radius: 8%;
 }
+
+
 
 #navbar input:checked~ul {
   transform: none; /*cely menu je posunuto transformaci -100%,
@@ -115,29 +141,31 @@ a:hover {
 
 /*konci sekce pro menu*/
 
-.main {
-  background-image: url("background.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 100%;
-  width: 100%;
-}
-
-#logo {
+#logoBig {
+  max-width: 602px;
+  max-height: 523px;
   position: relative;
-  top: 5%;
+  top: 50px;
+  left: 50%;
   display:block;
-  max-width: 669px;
-  max-height: 582px;
-  margin: 0 auto;
+  -webkit-transform: translateX(-50%);
+  transform: translate(-50%);
 }
 
+#logoSmall {
+  position: fixed;
+  top: 5%;
+  left: 20px;
+  width: calc(669px * 0.15);
+  height: calc(582px * 0.15);
+  display: none;
+  cursor: pointer;
+}
 
 #btnOmne {
   position: relative;
   width: 140px;
-  top: 5%;
+  top: 10%;
   margin: 0 auto;
   background-color: transparent;
   padding-top: 20px;
@@ -159,7 +187,35 @@ a:hover {
 }
 
 #btnOmne:active {
-  top: calc(5% + 5px); /*button po kliknuti klesne o 5px*/
+  top: calc(10% + 5px); /*button po kliknuti klesne o 5px*/
+}
+
+.main {
+  height: 100%;
+  position: relative;
+}
+
+
+h1 {
+  font-size: 120px;
+  color: white;
+  text-align: center;
+  font-weight: 900;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 30%;
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: #ebd7bb;
+  background-color: #2a2c30;
+  text-align: center;
 }
 
 
