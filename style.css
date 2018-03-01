@@ -342,10 +342,10 @@ transform: rotate(135deg);
 
 }
 input.toggle:checked ~ span.hide1{
-  -webkit-transform: rotate(-315deg);
- -moz-transform: rotate(-315deg);
- -o-transform: rotate(-315deg);
- transform: rotate(-315deg);
+   -webkit-transform: rotate(585deg);
+ -moz-transform: rotate(585deg);
+ -o-transform: rotate(585deg);
+ transform: rotate(585deg);
  background: #3b3c3d;
  top: -25px;
 }
