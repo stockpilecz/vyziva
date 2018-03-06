@@ -21,7 +21,7 @@ body{
   margin: 0;
   padding: 0;
   display: block;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 1; /*pozice zobrazeni*/
   display: none;
@@ -112,7 +112,7 @@ top: 89px;
 .menu {
   position: fixed;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin-top: -100px;
   padding-top: 230px;
   right: 0;
@@ -120,9 +120,18 @@ top: 89px;
   /* padding: 170px 100px 50px 100px; */
   background: rgba(80,170,158,0.9);
   list-style-type: none;
-  transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
   transform: translate( 100%, -0%);
+  -webkit-transform: translate( 100%, -0%);
+  -moz-transform: translate( 100%, -0%);
+  -o-transform: translate( 100%, -0%);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  -webkit-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  -moz-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+  -o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   text-align: center;
 }
 
