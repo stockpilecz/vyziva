@@ -119,7 +119,7 @@ top: 89px;
 .menu {
   position: fixed;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   margin-top: -100px;
   padding-top: 230px;
   right: 0;
@@ -172,15 +172,6 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
 /*konci sekce pro menu*/
 
 
-#logoBig {
-  max-width: 602px;
-  display:block;
-  margin: 150px auto 0 auto;
-  width: 100%;
-  object-fit: contain;
-}
-
-
 #logoSmall {
   position: fixed;
   top: 5%;
@@ -192,35 +183,6 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
   /* z-index: 2; */
 }
 
-
-/*button O mne sekce */
-#btnOmne {
-  position: relative;
-  width: 100px;
-  margin: 30px auto 0 auto;
-  background-color: transparent;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  cursor: pointer;
-  color: #ebd7bb;
-  text-align: center;
-  border-radius: 20px;
-  border: 5px solid #ebd7bb;
-  text-transform: uppercase;
-  font-size: 20px;
-  display: block;
-  box-shadow: inset 0 0 25px #ebd7bb, 0 0 25px #edebe8;
-}
-
-#btnOmne:hover {
-  box-shadow: inset 0 0 25px #ebd7bb, 0 0 45px #edebe8;
-  /*hover efekt prida vic pixelu do outter glow*/
-}
-
-#btnOmne:active {
-  margin-top: 35px; /*button po kliknuti klesne o 5px*/
-}
-/*konci button O mne sekce */
 
 /*Main content sekce*/
 .main{
@@ -383,9 +345,7 @@ footer {
   margin: 0 auto;
   top: 20%;
 }
-*{
-  box-sizing: border-box;
-}
+
 
 .container{
   max-width:1170px;
@@ -409,6 +369,7 @@ ul{
 
 .wrapper{
   box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+
 }
 
 .wrapper > *{
@@ -417,11 +378,13 @@ ul{
 
 .company-info{
   background:#c9e6ff;
+    box-sizing: border-box;
 }
 
 .company-info h3, .company-info ul{
   text-align: center;
   margin:0 0 1rem 0;
+    box-sizing: border-box;
 }
 
 .contact{
@@ -433,10 +396,12 @@ ul{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap:20px;
+    box-sizing: border-box;
 }
 
 .contact form label{
   display:block;
+    box-sizing: border-box;
 }
 
 .contact form p{
@@ -445,12 +410,14 @@ ul{
 
 .contact form .full{
   grid-column: 1 / 3;
+    box-sizing: border-box;
 }
 
 .contact form button, .contact form input, .contact form textarea{
   width:100%;
   padding:1em;
   border:1px solid #000;
+    box-sizing: border-box;
 }
 
 .contact form button{
@@ -464,6 +431,7 @@ ul{
   color:#fff;
   outline:0;
   transition: background-color 2s ease-out;
+    box-sizing: border-box;
 }
 
 
@@ -500,3 +468,5 @@ ul{
   #logoSmall {
     position: relative;
   }
+
+}
