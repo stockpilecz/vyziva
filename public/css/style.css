@@ -1,43 +1,41 @@
-
-
 @import url('https://fonts.googleapis.com/css?family=Montserrat&subset=latin-ext');
 body, html {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", serif;
-  height: 100%;
   width: 100%;
-
+  height: 100%;
 }
 
-body{
+body {
   background-image: url("../pozadi kytky.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: fixed; /* parallax efekt*/
+  background-attachment: fixed;  /* parallax efekt*/
   position: absolute;
   top: 0;
-  left:0;
+  left: 0;
   right:0;
-  bottom:0;
+  bottom: 0;
 }
 
 /*zacina sekce pro menu*/
+
 #navbar {
   margin: 0;
   padding: 0;
   display: block;
   position: fixed;
   width: 100%;
-  z-index: 1; /*pozice zobrazeni*/
-  display: none;
-  /*zmeni se na block v js*/
+  z-index: 2;
+  display: block;
 }
 
-/* input je checkbox, ktery ma pozici 2 a opacity 0
+/* input je checkbox, ktery ma pozici 3 a opacity 0
 takze je zobrazen v popredi a ridi interakci
 pseudoselekci :checked */
+
 #navbar input {
   display: block;
   width: 50px;
@@ -48,14 +46,13 @@ pseudoselekci :checked */
   top: 60px;
   right: 40px;
   opacity: 0;
-  z-index: 2;
+  z-index: 5;
   cursor: pointer;
 }
 
-
-
 /* vykresleni hamburger menu a jeho animace */
-#span1, #span2, #span3 {
+
+#hamburgerSpan1, #hamburgerSpan2, #hamburgerSpan3 {
   display: block;
   width: 33px;
   height: 4.5px;
@@ -66,51 +63,53 @@ pseudoselekci :checked */
   right: 50px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 2.5px;
-  z-index: 1;
+  z-index: 4;
   -webkit-transform: rotate(0deg);
- -moz-transform: rotate(0deg);
- -o-transform: rotate(0deg);
- transform: rotate(0deg);
- /* tohle jsou transition duration pro vsechny zmeny*/
- -webkit-transition: .35s ease-in-out;
- -moz-transition: .35s ease-in-out;
- -o-transition: .35s ease-in-out;
- transition: .35s ease-in-out;
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  /* tohle jsou transition duration pro vsechny zmeny*/
+  -webkit-transition: .35s ease-in-out;
+  -moz-transition: .35s ease-in-out;
+  -o-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
 }
 
 /*pozice fixed to dala na jedno misto, tak jsem je musel jednotlive posunout*/
-#span2 {
-top: 79px;
+
+#hamburgerSpan2 {
+  top: 79px;
 }
 
-#span3 {
-top: 89px;
+#hamburgerSpan3 {
+  top: 89px;
 }
 
-#navbar input:checked~#span1 {
+#navbar input:checked~#hamburgerSpan1 {
   background: #3b3c3d;
   top: 79px;
-   -webkit-transform: rotate(135deg);
-   -moz-transform: rotate(135deg);
-   -o-transform: rotate(135deg);
-   transform: rotate(135deg);
-   border-radius: 4px;
-   height: 5px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  border-radius: 4px;
+  height: 5px;
 }
+
 /*sjede do pravy prdele a zmizi prdele*/
-#navbar input:checked~#span2 {
+
+#navbar input:checked~#hamburgerSpan2 {
   right: 20px;
   background: rgba(255, 255, 255, 0);
   transform-origin: 10px 0px;
 }
 
-#navbar input:checked~#span3 {
+#navbar input:checked~#hamburgerSpan3 {
   top: 79px;
-   -webkit-transform: rotate(-135deg);
-   -moz-transform: rotate(-135deg);
-   -o-transform: rotate(-135deg);
-   transform: rotate(-135deg);
-
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
   height: 5px;
   border-radius: 4px;
   background: #3b3c3d;
@@ -123,11 +122,9 @@ top: 89px;
   margin-top: -100px;
   padding-top: 230px;
   right: 0;
-  /* margin-right: -100px; */
-  /* padding: 170px 100px 50px 100px; */
-  background: rgba(80,170,158,0.9);
+  background: rgba(80, 170, 158, 0.9);
   list-style-type: none;
-   transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
   -webkit-transform-origin: 0% 0%;
   -moz-transform-origin: 0% 0%;
   -o-transform-origin: 0% 0%;
@@ -140,15 +137,17 @@ top: 89px;
   -moz-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   -o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
   text-align: center;
+  z-index: 3;
 }
 
 /*pozice itemu vuci hamburgeru je nyni presne dana
 pokud se zvetsi napr. font musi se pozicovani predelat*/
+
 .menu li {
   font-size: 30px;
   margin-left: 10px;
   display: block;
-    padding-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .menu a {
@@ -160,39 +159,48 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
 }
 
 .menu a:hover {
-  color:#8b542f;
+  color: #8b542f;
 }
 
-
-#navbar input:checked ~ ul {
-  transform: none; /*cely menu je posunuto transformaci -100%,
+#navbar input:checked~ul {
+  transform: none;
+  /*cely menu je posunuto transformaci -100%,
   checknuti checkboxu transformaci zrusi a menu sjede*/
 }
 
 /*konci sekce pro menu*/
 
+.logoSmallDiv {
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100%;
+  box-sizing: border-box;
+  height: 150px;
+}
 
 #logoSmall {
-  position: fixed;
-  top: 5%;
-  left: 20px;
+  position: relative;
+  margin: 35px;
   width: calc(669px * 0.15);
   height: calc(582px * 0.15);
-  display: none;
   cursor: pointer;
-  /* z-index: 2; */
 }
 
+/*jeden div je mainContainer, kterej je vzdy vysoky tak, aby paticka byla na konci stranky.
+ Je bran v potaz hard coded height paticky*/
 
-/*Main content sekce*/
-.main{
+.mainContainer {
   position: relative;
-  height: 100%;
-  width:100%;
+  min-height: calc(100% - 190px);
+  top: 150px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-h1 {
+.pageHeader {
   font-size: 120px;
+  max-width: 100%;
   color: white;
   text-align: center;
   font-weight: 900;
@@ -200,23 +208,21 @@ h1 {
   margin: 0;
   padding: 0;
   position: relative;
-  top: 15%;
 }
 
-p {
-  max-width:900px;
+#paragraphMasaze   {
+  max-width: 900px;
   font-size: 15px;
   color: white;
   margin: 0 auto;
   font-weight: 900;
   padding: 0;
-  position: relative;
-  top: 15%;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
-
 .box {
-  max-width:920px;
+  max-width: 920px;
   max-height: auto;
   font-size: 19px;
   color: white;
@@ -226,14 +232,13 @@ p {
   border-radius: 50px 20px;
   margin: 0 auto;
   margin-bottom: 40px;
-  background: rgba(80,170,158,0.3);
+  background: rgba(80, 170, 158, 0.3);
   padding: 20px;
   position: relative;
-  top:20%;
+  top: 20%;
 }
 
-
-h2 {
+.box h2 {
   font-size: 40px;
   color: white;
   text-align: center;
@@ -246,15 +251,15 @@ h2 {
 }
 
 .boxContent {
-    transition:  0.6s all ease-in-out;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    display: block;
-    text-align: left;
+  transition: 0.6s all ease-in-out;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  display: block;
+  text-align: left;
 }
 
-input.toggle {
+.showAndHideCheckbox {
   display: block;
   width: 50px;
   height: 35px;
@@ -262,211 +267,193 @@ input.toggle {
   position: relative;
   left: 7.5px;
   opacity: 0;
-  z-index: 2;
+  z-index: 1;
   cursor: pointer;
 }
 
-input.toggle:checked ~ span.boxContent {
+input.showAndHideCheckbox:checked~span.boxContent {
   opacity: 1;
   max-height: 9000px;
 }
 
-span.hide {
- display: block;
- width: 25px;
- height: 5px;
- position: relative;
- margin: 0 auto;
- top: -20px;
- background: rgba(255, 255, 255, 1);
- border-radius: 2.5px;
- -webkit-transform: rotate(45deg);
--moz-transform: rotate(45deg);
--o-transform: rotate(45deg);
-transform: rotate(45deg);
- -webkit-transition: .5s ease-in-out;
- -moz-transition: .5s ease-in-out;
- -o-transition: .5s ease-in-out;
- transition: .5s ease-in-out;
- z-index: 1;
-
-}
-input.toggle:checked ~ span.hide{
-  -webkit-transform: rotate(-405deg);
- -moz-transform: rotate(-405deg);
- -o-transform: rotate(-405deg);
- transform: rotate(-405deg);
- background: #3b3c3d;
-}
-span.hide1 {
- display: block;
- position: relative;
- top: -25px;
- left: 14.65px;
- width: 25px;
- height: 5px;
+span.showBoxContent {
+  display: block;
+  width: 25px;
+  height: 5px;
+  position: relative;
   margin: 0 auto;
- background: rgba(255, 255, 255, 1);
- border-radius: 2.5px;
- -webkit-transform: rotate(135deg);
--moz-transform: rotate(135deg);
--o-transform: rotate(135deg);
-transform: rotate(135deg);
- -webkit-transition: .45s ease-in-out;
- -moz-transition: .45s ease-in-out;
- -o-transition: .45s ease-in-out;
- transition: .45s ease-in-out;
- z-index: 1;
-
-}
-input.toggle:checked ~ span.hide1{
-   -webkit-transform: rotate(585deg);
- -moz-transform: rotate(585deg);
- -o-transform: rotate(585deg);
- transform: rotate(585deg);
- background: #3b3c3d;
- top: -25px;
+  top: -20px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 2.5px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  z-index: 1;
 }
 
+input.showAndHideCheckbox:checked~span.showBoxContent {
+  -webkit-transform: rotate(-405deg);
+  -moz-transform: rotate(-405deg);
+  -o-transform: rotate(-405deg);
+  transform: rotate(-405deg);
+  background: #3b3c3d;
+}
+
+span.hideBoxContent {
+  display: block;
+  position: relative;
+  top: -25px;
+  left: 14.65px;
+  width: 25px;
+  height: 5px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 2.5px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  -webkit-transition: .45s ease-in-out;
+  -moz-transition: .45s ease-in-out;
+  -o-transition: .45s ease-in-out;
+  transition: .45s ease-in-out;
+  z-index: 1;
+}
+
+input.showAndHideCheckbox:checked~span.hideBoxContent  {
+  -webkit-transform: rotate(585deg);
+  -moz-transform: rotate(585deg);
+  -o-transform: rotate(585deg);
+  transform: rotate(585deg);
+  background: #3b3c3d;
+  top: -25px;
+}
 
 footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  bottom: -150px;
   padding: 10px;
   color: #ebd7bb;
   background-color: #2a2c30;
   text-align: center;
 }
 
-#content {
-  position: relative;
-  margin: 0 auto;
-  top: 20%;
-}
-
-
-.container{
-  max-width:1170px;
-  margin-left:auto;
-  margin-right:auto;
-  padding:1em;
-}
-
-ul{
-  list-style: none;
-  padding:0;
-}
-
-.brand{
-  text-align: center;
-}
-
-.brand span{
-  color:#fff;
-}
-
-.wrapper{
-  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
-
-}
-
-.wrapper > *{
+.container {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 1em;
 }
 
-.company-info{
-  background:#c9e6ff;
-    box-sizing: border-box;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.company-info h3, .company-info ul{
+.brand {
   text-align: center;
-  margin:0 0 1rem 0;
-    box-sizing: border-box;
 }
 
-.contact{
-  background:#f9feff;
+.brand span {
+  color: #fff;
+}
+
+.wrapper {
+  box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+}
+
+.wrapper>* {
+  padding: 1em;
+}
+
+.company-info {
+  background: #c9e6ff;
+}
+
+.company-info h3, .company-info ul {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.contact {
+  background: #f9feff;
 }
 
 /* FORM STYLES */
-.contact form{
+
+.contact form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap:20px;
-    box-sizing: border-box;
+  grid-gap: 20px;
 }
 
-.contact form label{
-  display:block;
-    box-sizing: border-box;
+.contact form label {
+  display: block;
+  color: black;
 }
 
-.contact form p{
-  margin:0;
+.contact form p {
+  margin: 0;
 }
 
-.contact form .full{
+.contact form .full {
   grid-column: 1 / 3;
-    box-sizing: border-box;
 }
 
-.contact form button, .contact form input, .contact form textarea{
-  width:100%;
-  padding:1em;
-  border:1px solid #000;
-    box-sizing: border-box;
+
+.contact form button, .contact form input, .contact form textarea {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid #000;
+  box-sizing: border-box;
 }
 
-.contact form button{
-  background:#92bde7;
-  border:0;
+.contact form textarea {
+  resize: vertical;
+}
+
+.contact form button {
+  background: #92bde7;
+  border: 0;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
-.contact form button:hover,.contact form button:focus{
-  background:#92bde7;
-  color:#fff;
-  outline:0;
+.contact form button:hover, .contact form button:focus {
+  background: #92bde7;
+  color: #fff;
+  outline: 0;
   transition: background-color 2s ease-out;
-    box-sizing: border-box;
 }
-
 
 /* responsive design, mensi sirka nez 930 bude mit menu vertikalne */
-@media only screen and (max-width: 930px)  {
+
+@media only screen and (max-width: 930px) {
   .menu li {
     display: block;
     font-size: 22px;
     text-align: center;
     padding-bottom: 20px;
   }
-
-  .menu {
-    background: rgba(80,170,158,0.85);
+  .logoSmallDiv {
+    position: absolute;
+    top:-150px;
   }
 
-  h1{
-        font-size: 60px;
+  .pageHeader {
+    font-size: 70px;
   }
-  p {
-    margin: 0 10px 0 10px;
-    text-align: center;
 
-  }
   .box {
     margin: 0 10px 20px 10px;
   }
 
-  .main {
-    position: absolute;
-    margin: 0;
-  }
-
-  #logoSmall {
-    position: relative;
-  }
 
 }
