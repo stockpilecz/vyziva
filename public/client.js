@@ -32,29 +32,41 @@ function goHome() {
   location.href = "omne.html";
 }
 
+
 //tohle je, kdyz je pri nacteni dana sirka < 930
-if(window.innerWidth < 930) {
-    window.addEventListener('scroll', scrollAndHide, false);
-}
+// if(window.innerWidth < 930) {
+//     window.addEventListener('scroll', scrollAndHide, false);
+// }
 //tahle funkce udela
-function scrollAndHide() {
-  navbar.style.animationDuration = "0.3s";
+// function scrollAndHide() {
+//   navbar.style.animationDuration = "0.3s";
+//
+//   if(window.oldScroll > (window.scrollY || window.pageYOffset)) {
+//     navbar.className = "animated fadeIn";
+//   } else {
+//     navbar.className = "animated fadeOut";
+//   }
+//   window.oldScroll = ( window.scrollY || window.pageYOffset);
+// }
+//
+// window.addEventListener('resize', mediaWidth, false);
+//
+// function mediaWidth() {
+//       var width = window.innerWidth;
+//       if (width < 930) {
+//         window.addEventListener('scroll', scrollAndHide, false);
+//       } else {
+//         window.removeEventListener('scroll', scrollAndHide, false);
+//       }
+// }
 
-  if(window.oldScroll > (window.scrollY || window.pageYOffset)) {
-    navbar.className = "animated fadeIn";
-  } else {
-    navbar.className = "animated fadeOut";
+let smallHeader = document.getElementById('smallHeader');
+
+
+window.addEventListener('scroll', function()   {
+  if (window.scrollY > 200) {
+    smallHeader.style.opacity = 1;
+  } else{
+    smallHeader.style.opacity = 0;
   }
-  window.oldScroll = ( window.scrollY || window.pageYOffset);
-}
-
-window.addEventListener('resize', mediaWidth, false);
-
-function mediaWidth() {
-      var width = window.innerWidth;
-      if (width < 930) {
-        window.addEventListener('scroll', scrollAndHide, false);
-      } else {
-        window.removeEventListener('scroll', scrollAndHide, false);
-      }
-}
+})

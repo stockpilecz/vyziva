@@ -28,7 +28,7 @@ body {
   display: block;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 6;
   display: block;
 }
 
@@ -43,10 +43,10 @@ pseudoselekci :checked */
   position: fixed;
   float: right;
   clear: right;
-  top: 60px;
+  top: 25px;
   right: 40px;
   opacity: 0;
-  z-index: 5;
+  z-index: 7;
   cursor: pointer;
 }
 
@@ -59,11 +59,11 @@ pseudoselekci :checked */
   position: fixed;
   float: right;
   clear: right;
-  top: 70px;
+  top: 30px;
   right: 50px;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 2.5px;
-  z-index: 4;
+  z-index: 5;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -78,16 +78,16 @@ pseudoselekci :checked */
 /*pozice fixed to dala na jedno misto, tak jsem je musel jednotlive posunout*/
 
 #hamburgerSpan2 {
-  top: 79px;
+  top: 39px;
 }
 
 #hamburgerSpan3 {
-  top: 89px;
+  top: 49px;
 }
 
 #navbar input:checked~#hamburgerSpan1 {
   background: #3b3c3d;
-  top: 79px;
+  top: 39px;
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);
@@ -105,7 +105,7 @@ pseudoselekci :checked */
 }
 
 #navbar input:checked~#hamburgerSpan3 {
-  top: 79px;
+  top: 39px;
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
@@ -177,13 +177,15 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
   width: 100%;
   box-sizing: border-box;
   height: 150px;
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  z-index: 5;
 }
 
 #logoSmall {
   position: relative;
-  margin: 35px;
-  width: calc(669px * 0.15);
-  height: calc(582px * 0.15);
+  margin: 13px;
+  width: calc(669px * 0.10);
+  height: calc(582px * 0.10);
   cursor: pointer;
 }
 
@@ -427,7 +429,7 @@ ul {
 
 /* responsive design, mensi sirka nez 930 bude mit menu vertikalne */
 
-@media only screen and (max-width: 930px) {
+/* @media only screen and (max-width: 930px) {
   .menu li {
     display: block;
     font-size: 22px;
@@ -448,4 +450,4 @@ ul {
   }
 
 
-}
+} */
