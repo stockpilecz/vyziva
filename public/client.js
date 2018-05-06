@@ -70,3 +70,18 @@ window.addEventListener('scroll', function()   {
     smallHeader.style.opacity = 0;
   }
 })
+
+function displayContent(e, masaz) {
+
+  let boxContent = document.getElementsByClassName('boxContent');
+  for (i = 0; i < boxContent.length;i++){
+    boxContent[i].style.display = "none";
+  }
+  let box = document.getElementsByClassName('box');
+  for (i = 0; i < box.length; i++) {
+    box[i].className = box[i].className.replace(" active", "");
+  }
+
+  document.getElementById(masaz).style.display = "block";
+  e.currentTarget.className += " active";
+}

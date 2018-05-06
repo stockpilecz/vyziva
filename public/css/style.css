@@ -222,119 +222,102 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
   margin-bottom: 40px;
   text-align: center;
 }
+#tabsBackground {
+  width: 100%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+
+
+}
+
+#tabs {
+  display: flex;
+  max-width: 1200px;
+  padding: 30px;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
 
 .box {
-  max-width: 920px;
-  max-height: auto;
-  font-size: 19px;
-  color: white;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  /* background-color: rgba(0,0,0,0.6); */
+  background-color: Sienna;
   text-align: center;
-  font-weight: 900;
-  border: 3px solid white;
-  border-radius: 50px 20px;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  background: rgba(80, 170, 158, 0.3);
-  padding: 20px;
-  position: relative;
-  top: 20%;
-}
-
-.box h2 {
-  font-size: 40px;
-  color: white;
-  text-align: center;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 15%;
-}
-
-.boxContent {
-  transition: 0.6s all ease-in-out;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  display: block;
-  text-align: left;
-}
-
-.showAndHideCheckbox {
-  display: block;
-  width: 50px;
-  height: 35px;
-  margin: 0 auto;
-  position: relative;
-  left: 7.5px;
-  opacity: 0;
-  z-index: 1;
+  line-height: 160px;
+  margin: 10px;
+  transition: all .3s ease;
   cursor: pointer;
 }
 
-input.showAndHideCheckbox:checked~span.boxContent {
+.box:hover{
+  box-shadow: 0 0 0 5px;
+}
+
+.box h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+#wrapperBoxContent {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.boxContent {
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 6px 9px rgba(0,0,0,0.16), 0 6px 9px rgba(0,0,0,0.23);
+  padding: 30px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  display: none;
   opacity: 1;
-  max-height: 9000px;
+  transition: all .3s ease;
+  animation: grow .5s ease;
 }
-
-span.showBoxContent {
+#boxContent1 {
   display: block;
-  width: 25px;
-  height: 5px;
-  position: relative;
-  margin: 0 auto;
-  top: -20px;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 2.5px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  z-index: 1;
 }
 
-input.showAndHideCheckbox:checked~span.showBoxContent {
-  -webkit-transform: rotate(-405deg);
-  -moz-transform: rotate(-405deg);
-  -o-transform: rotate(-405deg);
-  transform: rotate(-405deg);
-  background: #3b3c3d;
+
+.active {
+  background-color: white;
+
 }
 
-span.hideBoxContent {
-  display: block;
-  position: relative;
-  top: -25px;
-  left: 14.65px;
-  width: 25px;
-  height: 5px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 1);
-  border-radius: 2.5px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-  -webkit-transition: .45s ease-in-out;
-  -moz-transition: .45s ease-in-out;
-  -o-transition: .45s ease-in-out;
-  transition: .45s ease-in-out;
-  z-index: 1;
+@keyframes grow {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-input.showAndHideCheckbox:checked~span.hideBoxContent  {
-  -webkit-transform: rotate(585deg);
-  -moz-transform: rotate(585deg);
-  -o-transform: rotate(585deg);
-  transform: rotate(585deg);
-  background: #3b3c3d;
-  top: -25px;
-}
 
 footer {
   position: relative;
