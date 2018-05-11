@@ -187,7 +187,7 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
  Je bran v potaz hard coded height paticky*/
 
 .mainContainer {
-  min-height: calc(100vh - 59px);
+  min-height: calc(100vh - 61px);
   padding-top: 80px;
   width: 100%;
   box-sizing: border-box;
