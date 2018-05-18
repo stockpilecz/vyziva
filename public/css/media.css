@@ -29,13 +29,20 @@
   }
 
   #navbar input:checked~#hamburgerSpan1{
-    top: 27px;
+    top: 30.5px;
+    right: 20px;
+    width: 12px;
+    height: 4px;
   }
   #navbar input:checked~#hamburgerSpan2{
-    right: 10px;
+    right: 20px;
+    width: 20px;
   }
   #navbar input:checked~#hamburgerSpan3{
-    top: 27px;
+    top: 22.4px;
+        right: 20px;
+        width: 12px;
+          height: 4px;
   }
 
   #smallHeader{

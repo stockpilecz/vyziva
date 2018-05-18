@@ -3,6 +3,8 @@ var logoSmall = document.getElementById('logoSmall');
 var main = document.getElementById('main');
 var checkboxMenu = document.getElementById('checkboxMenu');
 
+checkboxMenu.checked = true;
+
 // function fadeEffect() {
 //
 //   // .className meni class pro dany element v DOM
@@ -32,6 +34,10 @@ function goHome() {
   location.href = "omne.html";
 }
 
+
+function showMenu() {
+  document.getElementsByClassName('druhyMenu')[0].style.opacity = 1;
+}
 
 //tohle je, kdyz je pri nacteni dana sirka < 930
 // if(window.innerWidth < 930) {

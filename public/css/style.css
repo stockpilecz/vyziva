@@ -55,7 +55,7 @@ pseudoselekci :checked */
   clear: right;
   top: 30px;
   right: 50px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(30, 30, 30, 1);
   border-radius: 2.5px;
   z-index: 5;
   -webkit-transform: rotate(0deg);
@@ -63,10 +63,10 @@ pseudoselekci :checked */
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
   /* tohle jsou transition duration pro vsechny zmeny*/
-  -webkit-transition: .35s ease-in-out;
-  -moz-transition: .35s ease-in-out;
-  -o-transition: .35s ease-in-out;
-  transition: .35s ease-in-out;
+  -webkit-transition: .40s ease-in-out;
+  -moz-transition: .40s ease-in-out;
+  -o-transition: .40s ease-in-out;
+  transition: .40s ease-in-out;
 }
 
 /*pozice fixed to dala na jedno misto, tak jsem je musel jednotlive posunout*/
@@ -80,33 +80,39 @@ pseudoselekci :checked */
 }
 
 #navbar input:checked~#hamburgerSpan1 {
-  background: #3b3c3d;
-  top: 39px;
-  -webkit-transform: rotate(135deg);
-  -moz-transform: rotate(135deg);
-  -o-transform: rotate(135deg);
-  transform: rotate(135deg);
-  border-radius: 4px;
+  top: 44px;
+  right: 48px;
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  transform: rotate(315deg);
+  border-radius: 6px;
   height: 5px;
+  width:16px;
 }
 
 /*sjede do pravy prdele a zmizi prdele*/
 
 #navbar input:checked~#hamburgerSpan2 {
-  right: 20px;
-  background: rgba(255, 255, 255, 0);
-  transform-origin: 10px 0px;
+  right: 50px;
+  width: 28px;
+  /* transform-origin: 10px 0px; */
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 #navbar input:checked~#hamburgerSpan3 {
-  top: 39px;
-  -webkit-transform: rotate(-135deg);
-  -moz-transform: rotate(-135deg);
-  -o-transform: rotate(-135deg);
-  transform: rotate(-135deg);
+  top: 34px;
+    right: 47.8px;
+  -webkit-transform: rotate(-315deg);
+  -moz-transform: rotate(-315deg);
+  -o-transform: rotate(-315deg);
+  transform: rotate(-315deg);
   height: 5px;
-  border-radius: 4px;
-  background: #3b3c3d;
+  border-radius: 6px;
+  width: 16px;
 }
 
 .menu {
@@ -302,6 +308,7 @@ pokud se zvetsi napr. font musi se pozicovani predelat*/
 
 .active:hover{
   box-shadow: none;
+  cursor: default;
 }
 
 .active:hover h2 {
@@ -344,6 +351,8 @@ ul {
   list-style: none;
   padding: 0;
 }
+
+
 
 .wrapper {
   box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
