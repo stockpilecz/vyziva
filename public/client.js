@@ -3,7 +3,7 @@ var logoSmall = document.getElementById('logoSmall');
 var main = document.getElementById('main');
 var checkboxMenu = document.getElementById('checkboxMenu');
 
-checkboxMenu.checked = true;
+// checkboxMenu.checked = true;
 
 // function fadeEffect() {
 //
